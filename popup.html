@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website Blocker</title>
+    <style>
+      body {
+        width: 320px;
+        padding: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, sans-serif;
+        margin: 0;
+        background-color: #1e1e1e;
+        color: #e1e1e1;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      h2 {
+        margin: 0;
+        color: #e1e1e1;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      h3 {
+        margin: 0;
+        color: #e1e1e1;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .url-input {
+        display: flex;
+        gap: 8px;
+      }
+      #urlInput {
+        flex-grow: 1;
+        padding: 8px 12px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+        background-color: #2d2d2d;
+        color: #e1e1e1;
+      }
+      #urlInput:focus {
+        border-color: #4a9eff;
+      }
+      #urlInput::placeholder {
+        color: #888;
+      }
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      #addUrl {
+        background-color: #4a9eff;
+        color: white;
+      }
+      #addUrl:hover {
+        background-color: #3d8ae8;
+      }
+      #saveTime {
+        background-color: #3f3f3f;
+        color: #e1e1e1;
+        width: 100%;
+        margin-top: 8px;
+        border: 1px solid #4a4a4a;
+      }
+      #saveTime:hover {
+        background-color: #4a4a4a;
+      }
+      .blocked-url {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        background-color: #2d2d2d;
+        margin: 4px 0;
+        border-radius: 8px;
+        border: 1px solid #333;
+        font-size: 14px;
+        color: #e1e1e1;
+      }
+      .remove-btn {
+        color: #ff4a4a;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0 4px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+      }
+      .remove-btn:hover {
+        background-color: #3d2d2d;
+      }
+      .time-settings {
+        background-color: #2d2d2d;
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid #333;
+      }
+      .time-input {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin: 8px 0;
+      }
+      .time-input label {
+        color: #888;
+        font-size: 14px;
+        width: 40px;
+      }
+      .time-input input {
+        width: 100px;
+        padding: 8px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        background-color: #3f3f3f;
+        color: #e1e1e1;
+      }
+      .time-input input:focus {
+        border-color: #4a9eff;
+      }
+      #blockedUrls {
+        max-height: 200px;
+        overflow-y: auto;
+        padding-right: 8px;
+      }
+      #blockedUrls::-webkit-scrollbar {
+        width: 8px;
+      }
+      #blockedUrls::-webkit-scrollbar-track {
+        background: #2d2d2d;
+        border-radius: 4px;
+      }
+      #blockedUrls::-webkit-scrollbar-thumb {
+        background: #444;
+        border-radius: 4px;
+      }
+      #blockedUrls::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Website Blocker</h2>
+      <div class="url-input">
+        <input type="text" id="urlInput" placeholder="Enter URL to block" />
+        <button id="addUrl">Add</button>
+      </div>
+      <div id="blockedUrls">
+        <h3>Blocked URLs:</h3>
+        <!-- Blocked URLs will be listed here -->
+      </div>
+      <div class="time-settings">
+        <h3>Blocking Schedule</h3>
+        <div class="time-input">
+          <label>From:</label>
+          <input type="time" id="startTime" />
+        </div>
+        <div class="time-input">
+          <label>To:</label>
+          <input type="time" id="endTime" />
+        </div>
+        <button id="saveTime">Save Schedule</button>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
